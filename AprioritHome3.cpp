@@ -17,11 +17,17 @@
 
 int main()
 {
+    char const EQUAL = '=';
+
+    const int DEV_BY_ZERO_ERROR = 101;
+    const double EPSILON = .000001;
+    const double ZERO = 0.0;
+
+    int const UNKNOWN_OPERATION_ERROR = 101;
+
     std::cout << "\t\tCalculator\n";
     double num = 0, result = 0;
     char operation = 0;
-    char const EQUAL = '=';
-    int const UNKNOWN_OPERATION_ERROR = 101;
     std::cin >> num;
     result = num;
     std::cin >> operation;
@@ -42,6 +48,13 @@ int main()
         }
         else if (operation == '/')
         {
+            double dif = abs(num - ZERO);
+            //std::cout << "dif = " << dif << std::endl;
+            if (dif <= EPSILON)
+            {
+                std::cout << "Devision by zero ERROR!!\n";
+                return DEV_BY_ZERO_ERROR;
+            }
             result /= num;
         }
         else
