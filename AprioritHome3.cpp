@@ -10,6 +10,7 @@
 
 int main()
 {
+    const int UNKNOWN_OPERATION_ERROR = 404;
     std::cout << "Enter the first num : ";
     double first = 0;
     std::cin >> first;
@@ -42,8 +43,8 @@ int main()
     }
     else
     {
-        std::cout << "Wrong nput...ERROR\n";
-        return 404;
+        std::cout << "Unknown operation ERROR\n";
+        return UNKNOWN_OPERATION_ERROR;
     }
 
     std::cout << "Result is : " << result << std::endl;
