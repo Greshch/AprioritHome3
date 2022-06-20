@@ -37,7 +37,7 @@ int main()
     else if (operation == '/')
     {
         double dif = abs(second - ZERO);
-        std::cout << "dif = " << dif << std::endl;
+        //std::cout << "dif = " << dif << std::endl;
         if (dif <= EPSILON)
         {
             std::cout << "Devision by zero ERROR!!\n";
