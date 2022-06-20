@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 
 //Enter the first num : 10
 //Enter the operation : +
@@ -11,6 +12,10 @@
 int main()
 {
     const int UNKNOWN_OPERATION_ERROR = 404;
+    const int DEV_BY_ZERO_ERROR = 101;
+    const double EPSILON = .000001;
+    const double ZERO = 0.0;
+
     std::cout << "Enter the first num : ";
     double first = 0;
     std::cin >> first;
@@ -31,6 +36,13 @@ int main()
     }
     else if (operation == '/')
     {
+        double dif = abs(second - ZERO);
+        std::cout << "dif = " << dif << std::endl;
+        if (dif <= EPSILON)
+        {
+            std::cout << "Devision by zero ERROR!!\n";
+            return DEV_BY_ZERO_ERROR;
+        }
         result = first / second;
     }
     else if (operation == '+')
